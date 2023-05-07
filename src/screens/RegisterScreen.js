@@ -20,13 +20,10 @@ import {
 import { registerStyle } from "../styles/Register";
 import { univerStyle } from "../styles/Universal";
 
-// Icons
-import { ellipseCircle } from "../assets/icons/Brand";
-import { SvgXml } from "react-native-svg";
-
 // Components
 import Input from "../components/Input";
 import ButtonWelcome from "../components/ButtonWelcome";
+import TopLeftCircle from "../components/TopLeftCircle";
 
 const RegisterScreen = ({ navigation }) => {
   const keyboardVerticalOffset = Platform.OS === "ios" ? 40 : 0;
@@ -39,7 +36,7 @@ const RegisterScreen = ({ navigation }) => {
           keyboardVerticalOffset={keyboardVerticalOffset}
         >
           <ScrollView>
-            <SvgXml xml={ellipseCircle} />
+            <TopLeftCircle />
             <View style={registerStyle.headerContainer}>
               <Text style={registerStyle.headerText}>Selamat Datang</Text>
               <Text style={registerStyle.descriptionText}>

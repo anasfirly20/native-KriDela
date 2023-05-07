@@ -20,19 +20,16 @@ import { registerStyle } from "../styles/Register";
 import { univerStyle } from "../styles/Universal";
 import { loginStyle } from "../styles/Login";
 
-// Icons
-import { ellipseCircle } from "../assets/icons/Brand";
-import { SvgXml } from "react-native-svg";
-
 // Components
 import Input from "../components/Input";
 import ButtonWelcome from "../components/ButtonWelcome";
+import TopLeftCircle from "../components/TopLeftCircle";
 
 const LoginScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={registerStyle.container}>
-        <SvgXml xml={ellipseCircle} />
+        <TopLeftCircle />
         <View style={registerStyle.headerContainer}>
           <Text style={registerStyle.headerText}>Selamat Datang</Text>
           <Text style={[univerStyle.smallText, registerStyle.descriptionText]}>
@@ -52,6 +49,7 @@ const LoginScreen = ({ navigation }) => {
               padding: 25,
             },
           ]}
+          onPress={() => navigation.navigate("Forgot Password")}
         >
           Lupa password?
         </Text>
