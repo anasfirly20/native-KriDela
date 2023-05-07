@@ -1,10 +1,18 @@
-import { View, Text, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import React from "react";
 
 // Styles
 import { univerStyle } from "../styles/Universal";
 
 const Input = ({ label, onChangeText, placeholder }) => {
+  const keyboardVerticalOffset = Platform.OS === "ios" ? 40 : 0;
+
   return (
     <View style={univerStyle.inputContainerChild}>
       <Text style={univerStyle.inputLabel}>{label}</Text>
