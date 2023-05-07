@@ -17,7 +17,7 @@ import {
 import { welcomeStyle } from "../styles/Welcome";
 
 // Icon
-import { brandLogo } from "../assets/icons/Brand";
+import { brandLogo, circleBottom, circleTop } from "../assets/icons/Brand";
 import { SvgXml } from "react-native-svg";
 
 // Components
@@ -27,6 +27,9 @@ const WelcomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={welcomeStyle.container}>
       <View style={welcomeStyle.content}>
+        <View style={welcomeStyle.circleTop}>
+          <SvgXml xml={circleTop} />
+        </View>
         <SvgXml xml={brandLogo} />
         <Text style={welcomeStyle.titleText}>KriDela</Text>
         <Text style={welcomeStyle.descriptionText}>
@@ -46,6 +49,9 @@ const WelcomeScreen = ({ navigation }) => {
             backgroundColor="white"
             onPress={() => navigation.navigate("Login")}
           />
+        </View>
+        <View style={welcomeStyle.circleBottom}>
+          <SvgXml xml={circleBottom} />
         </View>
       </View>
     </SafeAreaView>

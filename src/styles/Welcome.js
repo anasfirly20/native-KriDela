@@ -45,4 +45,14 @@ export const welcomeStyle = StyleSheet.create({
     borderRadius: 30,
     overflow: "hidden",
   },
+  circleTop: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+  },
+  circleBottom: {
+    position: "absolute",
+    right: 0,
+    bottom: 0,
+  },
 });

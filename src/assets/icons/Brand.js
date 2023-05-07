@@ -13,3 +13,79 @@ export const brandLogo = `<svg width="180" height="180" viewBox="0 0 363 304" fi
 <path d="M136 121L155.5 159L147.5 208.5L143.5 178L111 180L143.5 170H126L138 164.5L96.5 148L133 155L122 137L138 151L136 121Z" fill="black"/>
 </svg>
 `;
+
+export const ellipseCircle = `<svg width="300" height="250" viewBox="0 0 546 470" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_732_2663)">
+<ellipse cx="27" cy="-24" rx="499" ry="474" fill="#FBD9A8"/>
+</g>
+<ellipse cx="27.5" cy="-24.5" rx="475.5" ry="451.5" fill="#F0B35F"/>
+<circle cx="427.5" cy="61.5" r="34.5" fill="#FFD79C"/>
+<circle cx="359.5" cy="123.5" r="20.5" fill="#F8BA65"/>
+<circle cx="359.5" cy="123.5" r="20.5" fill="#503A2F"/>
+<circle cx="423.5" cy="139.5" r="16.5" fill="#F8BA65"/>
+<circle cx="423.5" cy="139.5" r="16.5" fill="#996D54"/>
+<defs>
+<filter id="filter0_d_732_2663" x="-472" y="-498" width="1018" height="968" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="10" dy="10"/>
+<feGaussianBlur stdDeviation="5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_732_2663"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_732_2663" result="shape"/>
+</filter>
+</defs>
+</svg>
+`;
+
+export const circleTop = `<svg width="200" height="150" viewBox="0 0 345 279" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_732_2665)">
+<ellipse cx="-73.5" cy="-119.5" rx="398.5" ry="378.5" fill="#FBD9A8"/>
+</g>
+<ellipse cx="-73" cy="-119.5" rx="380" ry="360.5" fill="#F0B35F"/>
+<circle cx="132.5" cy="61.5" r="34.5" fill="#FFD79C"/>
+<circle cx="128.5" cy="139.5" r="16.5" fill="#F8BA65"/>
+<circle cx="128.5" cy="139.5" r="16.5" fill="#996D54"/>
+<circle cx="64.5" cy="123.5" r="20.5" fill="#F8BA65"/>
+<circle cx="64.5" cy="123.5" r="20.5" fill="#503A2F"/>
+<defs>
+<filter id="filter0_d_732_2665" x="-472" y="-498" width="817" height="777" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="10" dy="10"/>
+<feGaussianBlur stdDeviation="5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_732_2665"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_732_2665" result="shape"/>
+</filter>
+</defs>
+</svg>
+`;
+
+export const circleBottom = `<svg width="200" height="150" viewBox="0 0 340 266" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_732_2664)">
+<ellipse cx="418.5" cy="398.5" rx="398.5" ry="378.5" fill="#FBD9A8"/>
+</g>
+<ellipse cx="419" cy="398.5" rx="380" ry="360.5" fill="#F0B35F"/>
+<circle cx="268.5" cy="147.5" r="34.5" fill="#F8BA65"/>
+<circle cx="268.5" cy="147.5" r="34.5" fill="#ECA94B"/>
+<circle cx="200.5" cy="209.5" r="20.5" fill="#F8BA65"/>
+<circle cx="200.5" cy="209.5" r="20.5" fill="#503A2F"/>
+<circle cx="264.5" cy="225.5" r="16.5" fill="#F8BA65"/>
+<circle cx="264.5" cy="225.5" r="16.5" fill="#996D54"/>
+<defs>
+<filter id="filter0_d_732_2664" x="0" y="0" width="817" height="777" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-10" dy="-10"/>
+<feGaussianBlur stdDeviation="5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_732_2664"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_732_2664" result="shape"/>
+</filter>
+</defs>
+</svg>
+`;
