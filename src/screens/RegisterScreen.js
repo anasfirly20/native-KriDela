@@ -31,39 +31,41 @@ const RegisterScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={registerStyle.container}>
-        <SvgXml xml={ellipseCircle} />
-        <View style={registerStyle.headerContainer}>
-          <Text style={registerStyle.headerText}>Selamat Datang</Text>
-          <Text style={registerStyle.descriptionText}>
-            Daftar untuk melanjutkan
-          </Text>
-        </View>
-        <View style={univerStyle.inputContainerParent}>
-          <Input label="Nama Pengguna" placeholder="Masukan Nama Pengguna" />
-          <Input label="No.HP" placeholder="Masukan No.HP" />
-          <Input label="Email" placeholder="Masukan Email" />
-          <Input label="Kata Sandi" placeholder="Masukan Sandi" />
-          <Input
-            label="Konfirmasi Kata Sandi"
-            placeholder="Masukan Ulang Kata Sandi"
-          />
-          <View style={registerStyle.buttonContainer}>
-            <ButtonWelcome
-              label="Daftar"
-              backgroundColor="#FBAE3C"
-              borderColor="transparent"
-            />
-          </View>
-          <Text style={{ textAlign: "center", fontSize: 15 }}>
-            Sudah punya akun? Masuk{" "}
-            <Text
-              style={{ color: "#F0B35F" }}
-              onPress={() => navigation.navigate("Login")}
-            >
-              disini
+        <ScrollView>
+          <SvgXml xml={ellipseCircle} />
+          <View style={registerStyle.headerContainer}>
+            <Text style={registerStyle.headerText}>Selamat Datang</Text>
+            <Text style={registerStyle.descriptionText}>
+              Daftar untuk melanjutkan
             </Text>
-          </Text>
-        </View>
+          </View>
+          <View style={registerStyle.inputContainerParent}>
+            <Input label="Nama Pengguna" placeholder="Masukan Nama Pengguna" />
+            <Input label="No.HP" placeholder="Masukan No.HP" />
+            <Input label="Email" placeholder="Masukan Email" />
+            <Input label="Kata Sandi" placeholder="Masukan Sandi" />
+            <Input
+              label="Konfirmasi Kata Sandi"
+              placeholder="Masukan Ulang Kata Sandi"
+            />
+            <View style={registerStyle.buttonContainer}>
+              <ButtonWelcome
+                label="Daftar"
+                backgroundColor="#FBAE3C"
+                borderColor="transparent"
+              />
+            </View>
+            <Text style={{ textAlign: "center", fontSize: 15 }}>
+              Sudah punya akun? Masuk{" "}
+              <Text
+                style={{ color: "#F0B35F" }}
+                onPress={() => navigation.navigate("Login")}
+              >
+                disini
+              </Text>
+            </Text>
+          </View>
+        </ScrollView>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );

@@ -1,11 +1,86 @@
-import { View, Text } from "react-native";
-import React from "react";
+import {
+  Button,
+  TextInput,
+  TouchableOpacity,
+  Text,
+  ActivityIndicator,
+  View,
+  KeyboardAvoidingView,
+  Alert,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  Pressable,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 
-const LoginScreen = () => {
+// Styles
+import { registerStyle } from "../styles/Register";
+import { univerStyle } from "../styles/Universal";
+import { loginStyle } from "../styles/Login";
+
+// Icons
+import { ellipseCircle } from "../assets/icons/Brand";
+import { SvgXml } from "react-native-svg";
+
+// Components
+import Input from "../components/Input";
+import ButtonWelcome from "../components/ButtonWelcome";
+
+const LoginScreen = ({ navigation }) => {
   return (
-    <View>
-      <Text>LoginScreen</Text>
-    </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <SafeAreaView style={registerStyle.container}>
+        <SvgXml xml={ellipseCircle} />
+        <View style={registerStyle.headerContainer}>
+          <Text style={registerStyle.headerText}>Selamat Datang</Text>
+          <Text style={[univerStyle.smallText, registerStyle.descriptionText]}>
+            Masuk untuk melanjutkan
+          </Text>
+          <View style={loginStyle.inputContainerParent}>
+            <Input label="Nama Pengguna" placeholder="Masukan Nama Pengguna" />
+            <Input label="Kata Sandi" placeholder="Masukan Sandi" />
+          </View>
+        </View>
+        <Text
+          style={[
+            univerStyle.smallText,
+            {
+              color: "#FBAE3C",
+              textAlign: "right",
+              padding: 25,
+            },
+          ]}
+        >
+          Lupa password?
+        </Text>
+        <View style={registerStyle.buttonContainer}>
+          <ButtonWelcome
+            label="Masuk"
+            backgroundColor="#FBAE3C"
+            borderColor="transparent"
+            onPress={() => console.log("PRESSED")}
+          />
+        </View>
+        <Text
+          style={[
+            univerStyle.smallText,
+            { textAlign: "center", marginTop: 25 },
+          ]}
+        >
+          Belum punya akun? Daftar{" "}
+          <Text
+            style={{ color: "#F0B35F" }}
+            onPress={() => {
+              navigation.navigate("Register");
+            }}
+          >
+            disini
+          </Text>
+        </Text>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 };
 
