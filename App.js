@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { TouchableWithoutFeedback, Keyboard } from "react-native";
 
 // Navigations
 import { NavigationContainer } from "@react-navigation/native";

@@ -14,7 +14,7 @@ export const brandLogo = `<svg width="180" height="180" viewBox="0 0 363 304" fi
 </svg>
 `;
 
-export const ellipseCircle = `<svg width="300" height="250" viewBox="0 0 546 470" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const ellipseCircle = `<svg width="250" height="150" viewBox="0 0 546 470" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_732_2663)">
 <ellipse cx="27" cy="-24" rx="499" ry="474" fill="#FBD9A8"/>
 </g>

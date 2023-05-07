@@ -30,7 +30,7 @@ export const welcomeStyle = StyleSheet.create({
       width: 0,
       height: 3.5,
     },
-    shadowOpacity: 0.5,
+    shadowOpacity: 0.2,
     shadowRadius: 1,
 
     elevation: 12,
