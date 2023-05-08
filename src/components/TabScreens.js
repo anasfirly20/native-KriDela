@@ -1,0 +1,61 @@
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+// Screens
+import HomeScreen from "../screens/tabScreens/HomeScreen";
+import MarketScreen from "../screens/tabScreens/MarketScreen";
+import PracticeScreen from "../screens/tabScreens/PracticeScreen";
+import AccountScreen from "../screens/tabScreens/AccountScreen";
+
+// Icons
+import {
+  homeIcon,
+  marketIcon,
+  practiceIcon,
+  accountIcon,
+} from "../assets/icons/TabIcons";
+import { SvgXml } from "react-native-svg";
+
+const Tab = createBottomTabNavigator();
+
+export const TabScreens = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarLabel: "Beranda",
+          tabBarIcon: () => <SvgXml xml={homeIcon(23, 23)} />,
+        }}
+      />
+      <Tab.Screen
+        name="MarketTab"
+        component={MarketScreen}
+        options={{
+          tabBarLabel: "Pasar",
+          tabBarIcon: () => <SvgXml xml={marketIcon(30, 30)} />,
+        }}
+      />
+      <Tab.Screen
+        name="PracticeTab"
+        component={PracticeScreen}
+        options={{
+          tabBarLabel: "Praktek",
+          tabBarIcon: () => <SvgXml xml={practiceIcon(23, 23)} />,
+        }}
+      />
+      <Tab.Screen
+        name="AccountTab"
+        component={AccountScreen}
+        options={{
+          tabBarLabel: "Akun",
+          tabBarIcon: () => <SvgXml xml={accountIcon(23, 23)} />,
+        }}
+      />
+    </Tab.Navigator>
+  );
+};

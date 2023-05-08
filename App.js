@@ -12,29 +12,10 @@ import RegisterScreen from "./src/screens/RegisterScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import ForgotPasswordScreen from "./src/screens/ForgotPasswordScreen";
 
-// After Auth / Tab Screens
-import HomeScreen from "./src/screens/tabScreens/HomeScreen";
-import MarketScreen from "./src/screens/tabScreens/MarketScreen";
-import PracticeScreen from "./src/screens/tabScreens/PracticeScreen";
-import AccountScreen from "./src/screens/tabScreens/AccountScreen";
+// Tab Screen Component
+import { TabScreens } from "./src/components/TabScreens";
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
-
-const TabScreens = () => {
-  return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <Tab.Screen name="HomeTab" component={HomeScreen} />
-      <Tab.Screen name="MarketTab" component={MarketScreen} />
-      <Tab.Screen name="PracticeTab" component={PracticeScreen} />
-      <Tab.Screen name="AccountTab" component={AccountScreen} />
-    </Tab.Navigator>
-  );
-};
 
 export default function App() {
   return (
