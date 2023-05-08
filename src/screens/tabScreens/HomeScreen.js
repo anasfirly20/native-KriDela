@@ -16,18 +16,18 @@ import {
 } from "react-native";
 
 // Icons
-import { brandLogo, whiteEllipseCircle } from "../assets/icons/Brand";
+import { brandLogo, whiteEllipseCircle } from "../../assets/icons/Brand";
 import {
   notifIcon,
   chatIcon,
   shoppingCartIcon,
   searchIcon,
-} from "../assets/icons/LittleIcons";
+} from "../../assets/icons/LittleIcons";
 import { SvgXml } from "react-native-svg";
 
 // Styles
-import { univerStyle } from "../styles/Universal";
-import { homeStyle } from "../styles/Home";
+import { univerStyle } from "../../styles/Universal";
+import { homeStyle } from "../../styles/Home";
 
 const HomeScreen = () => {
   return (
