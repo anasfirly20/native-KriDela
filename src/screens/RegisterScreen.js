@@ -26,26 +26,56 @@ import Input from "../components/Input";
 import ButtonWelcome from "../components/ButtonWelcome";
 import TopLeftCircle from "../components/TopLeftCircle";
 
-// Utils
-import { validationFunction } from "../../utils";
+// Firebase
+import { auth } from "../../firebase";
+import {
+  onAuthStateChanged,
+  signOut,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 
-const defaultValues = {
-  name: "",
-  telephone: null,
-  email: "",
-  password: "",
-  passwordRepeat: "",
-};
+// Utils
+import { clearObject } from "../../utils";
 
 const RegisterScreen = ({ navigation }) => {
   const keyboardVerticalOffset = Platform.OS === "ios" ? 40 : 0;
-  const [data, setData] = useState(defaultValues);
+  const [data, setData] = useState({
+    name: "",
+    telephone: null,
+    email: "",
+    password: "",
+    passwordRepeat: "",
+  });
+  const [error, setError] = useState("");
 
-  const handleSubmit = () => {
-    if (!validationFunction(defaultValues)) {
-      console.log("INCOMPLETE >>", data);
-    } else {
-      console.log("SUBMMITED ALL>>", data);
+  const validData =
+    data?.name &&
+    data?.telephone &&
+    data?.email &&
+    data?.password &&
+    data?.passwordRepeat;
+
+  const handleSubmit = async () => {
+    try {
+      if (validData) {
+        if (data?.password === data?.passwordRepeat) {
+          const res = await createUserWithEmailAndPassword(
+            auth,
+            data?.email,
+            data?.password
+          );
+          console.log("RES >", res);
+          clearObject(data, setData);
+          navigation.navigate("Login");
+        } else {
+          setError("Password do not match");
+        }
+      } else {
+        setError("Terjadi masalah saat membuat akun anda");
+      }
+    } catch (err) {
+      console.log(err);
+      setError("Terjadi masalah saat membuat akun anda");
     }
   };
 
@@ -99,6 +129,7 @@ const RegisterScreen = ({ navigation }) => {
                 onChangeText={(e) => setData({ ...data, passwordRepeat: e })}
                 secureTextEntry="true"
               />
+              {error && <Text style={univerStyle.error}>*{error}</Text>}
               <View style={registerStyle.buttonContainer}>
                 <ButtonWelcome
                   label="Daftar"

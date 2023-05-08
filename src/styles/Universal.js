@@ -21,4 +21,9 @@ export const univerStyle = StyleSheet.create({
   smallText: {
     fontSize: 16,
   },
+  error: {
+    color: "red",
+    fontSize: 15,
+    marginLeft: 10,
+  },
 });
