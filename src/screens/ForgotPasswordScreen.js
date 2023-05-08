@@ -19,13 +19,44 @@ import {
 // Components
 import TopLeftCircle from "../components/TopLeftCircle";
 import ButtonWelcome from "../components/ButtonWelcome";
+import Input from "../components/Input";
 
 // Styles
 import { forgotPassword } from "../styles/ForgotPassword";
 import { univerStyle } from "../styles/Universal";
-import Input from "../components/Input";
+
+import React, { useState } from "react";
+
+// Firebase
+import {
+  onAuthStateChanged,
+  signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
+import { auth } from "../../firebase";
 
 const ForgotPasswordScreen = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async () => {
+    try {
+      if (email) {
+        const res = await sendPasswordResetEmail(auth, email);
+        console.log("RES >>", res);
+      }
+    } catch (err) {
+      console.log(err);
+      if (err.code === "auth/user-not-found") {
+        setError("User not found");
+      } else {
+        setError("Terjadi kesalahan");
+      }
+    }
+  };
+
   return (
     <>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -46,13 +77,25 @@ const ForgotPasswordScreen = ({ navigation }) => {
               verifikasi kata sandi.
             </Text>
             <View style={{ width: "100%" }}>
-              <Input label="Email/No.HP" placeholder="Masukan Email/No.HP" />
+              <Input
+                label="Email"
+                placeholder="Masukan Email"
+                value={email}
+                onChangeText={(e) => setEmail(e)}
+                keyboardType="email-address"
+              />
+              {error && (
+                <Text style={[univerStyle.error, { marginTop: 5 }]}>
+                  *{error}
+                </Text>
+              )}
             </View>
             <View style={{ width: "90%" }}>
               <ButtonWelcome
                 label="Kirim"
                 backgroundColor="#FBAE3C"
                 borderColor="transparent"
+                onPress={handleSubmit}
               />
             </View>
             <Text

@@ -65,8 +65,8 @@ const RegisterScreen = ({ navigation }) => {
             data?.password
           );
           console.log("RES >", res);
-          clearObject(data, setData);
           navigation.navigate("Login");
+          clearObject(data, setData);
         } else {
           setError("Password do not match");
         }
@@ -120,14 +120,14 @@ const RegisterScreen = ({ navigation }) => {
                 placeholder="Masukan Sandi"
                 value={data?.password}
                 onChangeText={(e) => setData({ ...data, password: e })}
-                secureTextEntry="true"
+                secureTextEntry={true}
               />
               <Input
                 label="Konfirmasi Kata Sandi"
                 placeholder="Masukan Ulang Kata Sandi"
                 value={data?.passwordRepeat}
                 onChangeText={(e) => setData({ ...data, passwordRepeat: e })}
-                secureTextEntry="true"
+                secureTextEntry={true}
               />
               {error && <Text style={univerStyle.error}>*{error}</Text>}
               <View style={registerStyle.buttonContainer}>
