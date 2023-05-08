@@ -26,6 +26,10 @@ import ButtonWelcome from "../components/ButtonWelcome";
 import TopLeftCircle from "../components/TopLeftCircle";
 
 const LoginScreen = ({ navigation }) => {
+  const handlePress = () => {
+    navigation.navigate("Home");
+  };
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={registerStyle.container}>
@@ -58,7 +62,7 @@ const LoginScreen = ({ navigation }) => {
             label="Masuk"
             backgroundColor="#FBAE3C"
             borderColor="transparent"
-            onPress={() => console.log("PRESSED")}
+            onPress={handlePress}
           />
         </View>
         <Text

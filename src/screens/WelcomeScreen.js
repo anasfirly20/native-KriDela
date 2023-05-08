@@ -30,7 +30,7 @@ const WelcomeScreen = ({ navigation }) => {
         <View style={welcomeStyle.circleTop}>
           <SvgXml xml={circleTop} />
         </View>
-        <SvgXml xml={brandLogo} />
+        <SvgXml xml={brandLogo(180, 180)} />
         <Text style={welcomeStyle.titleText}>KriDela</Text>
         <Text style={welcomeStyle.descriptionText}>
           Hiasi Hidup Dengan Kriya-in
