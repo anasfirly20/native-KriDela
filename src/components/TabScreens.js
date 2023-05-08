@@ -23,6 +23,7 @@ export const TabScreens = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarActiveTintColor: "#262626",
       }}
     >
       <Tab.Screen
@@ -31,10 +32,10 @@ export const TabScreens = () => {
         options={{
           tabBarLabel: "Beranda",
           tabBarIcon: ({ focused }) => {
-            return focused ? (
-              <SvgXml xml={homeIcon(23, 23, "black")} />
-            ) : (
-              <SvgXml xml={homeIcon(23, 23)} />
+            return (
+              <SvgXml
+                xml={focused ? homeIcon(23, 23, "black") : homeIcon(23, 23)}
+              />
             );
           },
         }}
@@ -45,10 +46,10 @@ export const TabScreens = () => {
         options={{
           tabBarLabel: "Pasar",
           tabBarIcon: ({ focused }) => {
-            return focused ? (
-              <SvgXml xml={marketIconActive(30, 30, "black")} />
-            ) : (
-              <SvgXml xml={marketIcon(30, 30)} />
+            return (
+              <SvgXml
+                xml={focused ? marketIconActive(30, 30) : marketIcon(30, 30)}
+              />
             );
           },
         }}
@@ -59,10 +60,12 @@ export const TabScreens = () => {
         options={{
           tabBarLabel: "Praktek",
           tabBarIcon: ({ focused }) => {
-            return focused ? (
-              <SvgXml xml={practiceIcon(23, 23, "black")} />
-            ) : (
-              <SvgXml xml={practiceIcon(23, 23)} />
+            return (
+              <SvgXml
+                xml={
+                  focused ? practiceIcon(23, 23, "black") : practiceIcon(23, 23)
+                }
+              />
             );
           },
         }}
@@ -73,10 +76,12 @@ export const TabScreens = () => {
         options={{
           tabBarLabel: "Akun",
           tabBarIcon: ({ focused }) => {
-            return focused ? (
-              <SvgXml xml={accountIcon(23, 23, "black")} />
-            ) : (
-              <SvgXml xml={accountIcon(23, 23)} />
+            return (
+              <SvgXml
+                xml={
+                  focused ? accountIcon(23, 23, "black") : accountIcon(23, 23)
+                }
+              />
             );
           },
         }}
