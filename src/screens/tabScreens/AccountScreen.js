@@ -1,11 +1,33 @@
-import { View, Text } from "react-native";
+import {
+  Button,
+  TextInput,
+  TouchableOpacity,
+  Text,
+  ActivityIndicator,
+  View,
+  KeyboardAvoidingView,
+  Alert,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  Pressable,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import React from "react";
+
+// Component
+import ButtonWelcome from "../../components/ButtonWelcome";
+
+// Styles
+import { univerStyle } from "../../styles/Universal";
 
 const AccountScreen = () => {
   return (
-    <View>
+    <SafeAreaView style={univerStyle.container}>
       <Text>AccountScreen</Text>
-    </View>
+      <ButtonWelcome label="Keluar" onPress={() => console.log("KELUAR")} />
+    </SafeAreaView>
   );
 };
 

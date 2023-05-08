@@ -10,6 +10,7 @@ import AccountScreen from "../screens/tabScreens/AccountScreen";
 import {
   homeIcon,
   marketIcon,
+  marketIconActive,
   practiceIcon,
   accountIcon,
 } from "../assets/icons/TabIcons";
@@ -29,7 +30,7 @@ export const TabScreens = () => {
         component={HomeScreen}
         options={{
           tabBarLabel: "Beranda",
-          tabBarIcon: ({ size, focused, color }) => {
+          tabBarIcon: ({ focused }) => {
             return focused ? (
               <SvgXml xml={homeIcon(23, 23, "black")} />
             ) : (
@@ -43,7 +44,13 @@ export const TabScreens = () => {
         component={MarketScreen}
         options={{
           tabBarLabel: "Pasar",
-          tabBarIcon: () => <SvgXml xml={marketIcon(30, 30)} />,
+          tabBarIcon: ({ focused }) => {
+            return focused ? (
+              <SvgXml xml={marketIconActive(30, 30, "black")} />
+            ) : (
+              <SvgXml xml={marketIcon(30, 30)} />
+            );
+          },
         }}
       />
       <Tab.Screen
