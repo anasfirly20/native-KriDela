@@ -25,11 +25,17 @@ export const TabScreens = () => {
       }}
     >
       <Tab.Screen
-        name="Home"
+        name="HomeTab"
         component={HomeScreen}
         options={{
           tabBarLabel: "Beranda",
-          tabBarIcon: () => <SvgXml xml={homeIcon(23, 23)} />,
+          tabBarIcon: ({ size, focused, color }) => {
+            return focused ? (
+              <SvgXml xml={homeIcon(23, 23, "black")} />
+            ) : (
+              <SvgXml xml={homeIcon(23, 23)} />
+            );
+          },
         }}
       />
       <Tab.Screen
@@ -45,7 +51,13 @@ export const TabScreens = () => {
         component={PracticeScreen}
         options={{
           tabBarLabel: "Praktek",
-          tabBarIcon: () => <SvgXml xml={practiceIcon(23, 23)} />,
+          tabBarIcon: ({ focused }) => {
+            return focused ? (
+              <SvgXml xml={practiceIcon(23, 23, "black")} />
+            ) : (
+              <SvgXml xml={practiceIcon(23, 23)} />
+            );
+          },
         }}
       />
       <Tab.Screen
@@ -53,7 +65,13 @@ export const TabScreens = () => {
         component={AccountScreen}
         options={{
           tabBarLabel: "Akun",
-          tabBarIcon: () => <SvgXml xml={accountIcon(23, 23)} />,
+          tabBarIcon: ({ focused }) => {
+            return focused ? (
+              <SvgXml xml={accountIcon(23, 23, "black")} />
+            ) : (
+              <SvgXml xml={accountIcon(23, 23)} />
+            );
+          },
         }}
       />
     </Tab.Navigator>
