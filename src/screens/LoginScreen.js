@@ -27,7 +27,7 @@ import TopLeftCircle from "../components/TopLeftCircle";
 
 const LoginScreen = ({ navigation }) => {
   const handlePress = () => {
-    navigation.navigate("Home");
+    console.log("MASUK");
   };
 
   return (

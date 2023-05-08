@@ -10,7 +10,13 @@ import React from "react";
 // Styles
 import { univerStyle } from "../styles/Universal";
 
-const Input = ({ label, onChangeText, placeholder }) => {
+const Input = ({
+  label,
+  onChangeText,
+  placeholder,
+  secureTextEntry,
+  keyboardType,
+}) => {
   const keyboardVerticalOffset = Platform.OS === "ios" ? 40 : 0;
 
   return (
@@ -20,6 +26,9 @@ const Input = ({ label, onChangeText, placeholder }) => {
         style={univerStyle.input}
         onChangeText={onChangeText}
         placeholder={placeholder}
+        secureTextEntry={secureTextEntry}
+        keyboardType={keyboardType}
+        autoCapitalize="none"
       />
     </View>
   );

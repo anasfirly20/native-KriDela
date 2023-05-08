@@ -22,11 +22,24 @@ import ButtonWelcome from "../../components/ButtonWelcome";
 // Styles
 import { univerStyle } from "../../styles/Universal";
 
+// Firebase
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../../../firebase";
+
 const AccountScreen = () => {
+  const logout = async () => {
+    try {
+      const res = await signOut(auth);
+      console.log("RES >", res);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <SafeAreaView style={univerStyle.container}>
       <Text>AccountScreen</Text>
-      <ButtonWelcome label="Keluar" onPress={() => console.log("KELUAR")} />
+      <ButtonWelcome label="Keluar" onPress={logout} />
     </SafeAreaView>
   );
 };
