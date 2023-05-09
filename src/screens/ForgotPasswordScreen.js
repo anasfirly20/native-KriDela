@@ -20,6 +20,7 @@ import {
 import TopLeftCircle from "../components/TopLeftCircle";
 import ButtonWelcome from "../components/ButtonWelcome";
 import Input from "../components/Input";
+import ModalForgotPassword from "../components/ModalForgotPassword";
 
 // Styles
 import { forgotPassword } from "../styles/ForgotPassword";
@@ -38,29 +39,42 @@ import {
 import { auth } from "../../firebase";
 
 const ForgotPasswordScreen = ({ navigation }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async () => {
-    try {
-      if (email) {
-        const res = await sendPasswordResetEmail(auth, email);
-        console.log("RES >>", res);
-      }
-    } catch (err) {
-      console.log(err);
-      if (err.code === "auth/user-not-found") {
-        setError("User not found");
-      } else {
-        setError("Terjadi kesalahan");
-      }
-    }
+    handleModal();
+    // try {
+    //   if (email) {
+    //     const res = await sendPasswordResetEmail(auth, email);
+    //     console.log("RES >>", res);
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    //   if (err.code === "auth/user-not-found") {
+    //     setError("Pengguna tidak ditemukan");
+    //   } else {
+    //     setError("Terjadi kesalahan");
+    //   }
+    // }
+  };
+
+  const handleModal = () => {
+    setIsVisible(() => !isVisible);
   };
 
   return (
     <>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <SafeAreaView style={[univerStyle.container]}>
+          <ModalForgotPassword
+            isVisible={isVisible}
+            setIsVisible={setIsVisible}
+            handleModal={handleModal}
+            navigation={navigation}
+          />
           <TopLeftCircle />
           <View style={forgotPassword.content}>
             <Text style={forgotPassword.header}>

@@ -2,8 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const welcomeStyle = StyleSheet.create({
   container: {
-    height: "100%",
-    width: "100%",
+    flex: 1,
     backgroundColor: "#fff",
   },
   content: {
