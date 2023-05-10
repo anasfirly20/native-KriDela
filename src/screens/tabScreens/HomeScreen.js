@@ -14,6 +14,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
+import React, { useEffect, useState } from "react";
 
 // Icons
 import { brandLogo, whiteEllipseCircle } from "../../assets/icons/Brand";
@@ -29,7 +30,17 @@ import { SvgXml } from "react-native-svg";
 import { univerStyle } from "../../styles/Universal";
 import { homeStyle } from "../../styles/Home";
 
+// Firebase
+import { auth } from "../../../firebase";
+
 const HomeScreen = () => {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    setData(auth?.currentUser);
+    console.log("CHECK USER>>", auth?.currentUser);
+  }, []);
+
   return (
     <SafeAreaView style={[univerStyle.container]}>
       <View style={[homeStyle.threeIcons, { marginTop: 10 }]}>
@@ -46,7 +57,11 @@ const HomeScreen = () => {
           <SvgXml xml={brandLogo(60, 60)} />
         </View>
         <View style={homeStyle.content}>
-          <Text style={homeStyle.welcomeText}>Hello Fiki!</Text>
+          {data?.displayName && (
+            <Text style={homeStyle.welcomeText}>
+              Hello, {data?.displayName}!
+            </Text>
+          )}
           <Text style={homeStyle.welcomeText}>Mau ngapain hari ini?</Text>
           <View style={homeStyle.inputContainer}>
             <TextInput style={homeStyle.input} placeholder="Telusuri....." />

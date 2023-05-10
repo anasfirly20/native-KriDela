@@ -27,12 +27,10 @@ import ButtonWelcome from "../components/ButtonWelcome";
 import TopLeftCircle from "../components/TopLeftCircle";
 
 // Firebase
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { collection, addDoc } from "firebase/firestore";
 import { auth } from "../../firebase";
-import {
-  onAuthStateChanged,
-  signOut,
-  createUserWithEmailAndPassword,
-} from "firebase/auth";
+import { db } from "../../firebase";
 
 // Utils
 import { clearObject } from "../../utils";
@@ -59,12 +57,15 @@ const RegisterScreen = ({ navigation }) => {
     try {
       if (validData) {
         if (data?.password === data?.passwordRepeat) {
-          const res = await createUserWithEmailAndPassword(
+          await createUserWithEmailAndPassword(
             auth,
             data?.email,
             data?.password
           );
-          console.log("RES >", res);
+          await updateProfile(auth.currentUser, {
+            displayName: data?.name,
+            phoneNumber: data?.telephone,
+          });
           navigation.navigate("Login");
           clearObject(data, setData);
         } else {
@@ -75,7 +76,26 @@ const RegisterScreen = ({ navigation }) => {
       }
     } catch (err) {
       console.log(err);
-      setError("Terjadi masalah saat membuat akun anda");
+      if (err.code === "auth/weak-password") {
+        setError("Password should be at least 6 characters");
+      } else {
+        setError("Terjadi masalah saat membuat akun andaasdss");
+      }
+    }
+  };
+
+  const addUserData = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        fullName: data?.name,
+        telephone: data?.telephone,
+        email: data?.email,
+        password: data?.password,
+      });
+      console.log("Document written with ID: ", docRef.id);
+      console.log("ALL >>", docRef);
+    } catch (err) {
+      console.log(err);
     }
   };
 
