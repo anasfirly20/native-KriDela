@@ -15,12 +15,18 @@ import {
   Keyboard,
 } from "react-native";
 import React from "react";
+import { LinearGradient } from "expo-linear-gradient";
 
 // Component
 import ButtonWelcome from "../../components/ButtonWelcome";
 
 // Styles
 import { univerStyle } from "../../styles/Universal";
+import { accountStyle } from "../../styles/Account";
+
+// Icons
+import { editPencilIcon } from "../../assets/icons/LittleIcons";
+import { SvgXml } from "react-native-svg";
 
 // Firebase
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -38,8 +44,31 @@ const AccountScreen = () => {
 
   return (
     <SafeAreaView style={univerStyle.container}>
-      <Text>AccountScreen</Text>
-      <ButtonWelcome label="Keluar" onPress={logout} />
+      <LinearGradient
+        colors={["#FBAE3C", "#FFE3BA"]}
+        start={{ x: 1, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={accountStyle.headerBackground}
+      >
+        <View style={accountStyle.headerContainer}>
+          <View style={accountStyle.containerImage}>
+            <Image
+              source={require("../../../assets/firly.jpeg")}
+              style={accountStyle.image}
+            />
+            <View style={accountStyle.svgContainer}>
+              <SvgXml xml={editPencilIcon(18, 18)} />
+            </View>
+          </View>
+          <View style={accountStyle.nameContainer}>
+            <Text style={accountStyle.name}>NAME HERE</Text>
+            <SvgXml xml={editPencilIcon(15, 15)} />
+          </View>
+          <View style={accountStyle.userNameContainer}>
+            <Text style={accountStyle.userName}>USERNAME</Text>
+          </View>
+        </View>
+      </LinearGradient>
     </SafeAreaView>
   );
 };
