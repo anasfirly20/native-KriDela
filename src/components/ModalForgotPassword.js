@@ -21,7 +21,6 @@ import Modal from "react-native-modal";
 // Styles
 import { modalForgotPasswordStyle } from "../styles/ModalForgotPassword";
 import { LinearGradient } from "expo-linear-gradient";
-import { Animated } from "react-native";
 
 // Svg
 import { SvgXml } from "react-native-svg";
@@ -29,12 +28,7 @@ import { SvgXml } from "react-native-svg";
 // Icons
 import { checkIcon } from "../assets/icons/ModalIcons";
 
-const ModalForgotPassword = ({
-  isVisible,
-  handleModal,
-  setIsVisible,
-  navigation,
-}) => {
+const ModalForgotPassword = ({ isVisible, setIsVisible, navigation }) => {
   return (
     <SafeAreaView style={modalForgotPasswordStyle.container}>
       <Modal isVisible={isVisible}>

@@ -29,13 +29,7 @@ import { univerStyle } from "../styles/Universal";
 import React, { useState } from "react";
 
 // Firebase
-import {
-  onAuthStateChanged,
-  signOut,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  sendPasswordResetEmail,
-} from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase";
 
 const ForgotPasswordScreen = ({ navigation }) => {
@@ -45,20 +39,21 @@ const ForgotPasswordScreen = ({ navigation }) => {
   const [error, setError] = useState("");
 
   const handleSubmit = async () => {
-    handleModal();
-    // try {
-    //   if (email) {
-    //     const res = await sendPasswordResetEmail(auth, email);
-    //     console.log("RES >>", res);
-    //   }
-    // } catch (err) {
-    //   console.log(err);
-    //   if (err.code === "auth/user-not-found") {
-    //     setError("Pengguna tidak ditemukan");
-    //   } else {
-    //     setError("Terjadi kesalahan");
-    //   }
-    // }
+    try {
+      if (email) {
+        await sendPasswordResetEmail(auth, email);
+        handleModal();
+      } else {
+        setError("Masukkan email anda");
+      }
+    } catch (err) {
+      console.log(err);
+      if (err.code === "auth/user-not-found") {
+        setError("Pengguna tidak ditemukan");
+      } else {
+        setError("Terjadi kesalahan");
+      }
+    }
   };
 
   const handleModal = () => {
@@ -72,7 +67,6 @@ const ForgotPasswordScreen = ({ navigation }) => {
           <ModalForgotPassword
             isVisible={isVisible}
             setIsVisible={setIsVisible}
-            handleModal={handleModal}
             navigation={navigation}
           />
           <TopLeftCircle />
