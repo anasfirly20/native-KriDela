@@ -18,60 +18,35 @@ import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 // Component
-import ButtonWelcome from "../../components/ButtonWelcome";
+import ButtonWelcome from "../../../components/ButtonWelcome";
 
 // Styles
-import { univerStyle } from "../../styles/Universal";
-import { accountStyle } from "../../styles/Account";
+import { univerStyle } from "../../../styles/Universal";
+import { accountStyle } from "../../../styles/Account";
 
 // Icons
-import { editPencilIcon, locationIcon } from "../../assets/icons/LittleIcons";
-import { SvgXml } from "react-native-svg";
 import {
-  starIcon,
-  listIcon,
-  durationIcon,
-  settingsIcon,
-  logOutIcon,
-  arrowRight,
-} from "../../assets/icons/Account";
+  editPencilIcon,
+  locationIcon,
+} from "../../../assets/icons/LittleIcons";
+import { SvgXml } from "react-native-svg";
+import { arrowRight } from "./icons/accountIcons";
+
+// Constants
+import { iconList } from "./constants/iconList";
 
 // Firebase
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../../../firebase";
+import { auth } from "../../../../firebase";
 
-const AccountScreen = () => {
-  const logout = async () => {
+const AccountScreen = ({ navigation }) => {
+  const handleLogout = async () => {
     try {
-      const res = await signOut(auth);
-      console.log("RES >", res);
+      await signOut(auth);
     } catch (e) {
       console.error(e);
     }
   };
-
-  const iconList = [
-    {
-      icon: starIcon,
-      text: "Favorit",
-    },
-    {
-      icon: listIcon,
-      text: "Daftar Transaksi",
-    },
-    {
-      icon: durationIcon,
-      text: "Riwayat Transaksi",
-    },
-    {
-      icon: settingsIcon,
-      text: "Pengaturan Akun",
-    },
-    {
-      icon: logOutIcon,
-      text: "Keluar",
-    },
-  ];
 
   return (
     <SafeAreaView style={univerStyle.container}>
@@ -84,7 +59,7 @@ const AccountScreen = () => {
         <View style={accountStyle.headerContainer}>
           <View style={accountStyle.containerImage}>
             <Image
-              source={require("../../../assets/firly.jpeg")}
+              source={require("../../../../assets/firly.jpeg")}
               style={accountStyle.image}
             />
             <View style={accountStyle.svgContainer}>
@@ -126,15 +101,27 @@ const AccountScreen = () => {
       <ScrollView>
         <View style={{ gap: "10" }}>
           {iconList?.map((e) => (
-            <View style={accountStyle.options}>
-              <View
-                style={{ flexDirection: "row", alignItems: "center", gap: 25 }}
-              >
-                <SvgXml xml={e?.icon()} />
-                <Text style={accountStyle.optionsText}>{e?.text}</Text>
+            <Pressable
+              onPress={
+                e.text === "Keluar"
+                  ? handleLogout
+                  : () => console.log("NOT YET")
+              }
+            >
+              <View style={accountStyle.options}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: 25,
+                  }}
+                >
+                  <SvgXml xml={e?.icon()} />
+                  <Text style={accountStyle.optionsText}>{e?.text}</Text>
+                </View>
+                <SvgXml xml={arrowRight(40, 40)} />
               </View>
-              <SvgXml xml={arrowRight(40, 40)} />
-            </View>
+            </Pressable>
           ))}
         </View>
       </ScrollView>
