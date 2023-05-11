@@ -25,7 +25,7 @@ import { univerStyle } from "../../styles/Universal";
 import { accountStyle } from "../../styles/Account";
 
 // Icons
-import { editPencilIcon } from "../../assets/icons/LittleIcons";
+import { editPencilIcon, locationIcon } from "../../assets/icons/LittleIcons";
 import { SvgXml } from "react-native-svg";
 
 // Firebase
@@ -69,6 +69,29 @@ const AccountScreen = () => {
           </View>
         </View>
       </LinearGradient>
+      <View style={accountStyle.addressContainer}>
+        <SvgXml
+          xml={locationIcon(22, 22)}
+          style={{ alignSelf: "flex-start" }}
+        />
+        <Text style={accountStyle.addressText}>
+          Jalan yang benar no.1 RT10 RW06 {"\n"} Kel. Iman Kec. Taqwa, Surga
+          {"\n"}
+          1030, Akhirat
+        </Text>
+        <View style={accountStyle.addressButtonContainer}>
+          <Pressable
+            style={{
+              flexDirection: "row",
+              gap: 10,
+              alignItems: "center",
+            }}
+          >
+            <Text style={accountStyle.addressButtonText}>Change</Text>
+            <SvgXml xml={editPencilIcon(16, 16, "white")} />
+          </Pressable>
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
