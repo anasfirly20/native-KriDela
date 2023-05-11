@@ -5,6 +5,10 @@ import HomeScreen from "../screens/tabScreens/HomeScreen";
 import MarketScreen from "../screens/tabScreens/MarketScreen";
 import PracticeScreen from "../screens/tabScreens/PracticeScreen";
 import AccountScreen from "../screens/tabScreens/accountScreen/AccountScreen";
+import AddStoreScreen from "../screens/tabScreens/AddStoreScreen";
+
+// BUTTON
+import TabButton from "./TabButton";
 
 // Icons
 import {
@@ -51,6 +55,16 @@ export const TabScreens = () => {
                 xml={focused ? marketIconActive(30, 30) : marketIcon(30, 30)}
               />
             );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="addStore"
+        component={AddStoreScreen}
+        options={{
+          tabBarLabel: "",
+          tabBarIcon: ({ focused }) => {
+            return <TabButton />;
           },
         }}
       />
