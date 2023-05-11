@@ -66,6 +66,7 @@ export const accountStyle = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     gap: 15,
+    marginBottom: 50,
   },
   addressText: {
     fontSize: 15,
@@ -86,5 +87,19 @@ export const accountStyle = StyleSheet.create({
     color: "white",
     fontSize: 15,
     fontWeight: "600",
+  },
+  options: {
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row",
+    borderBottomWidth: 1,
+    borderBottomColor: "#CAC5BE",
+    paddingBottom: 5,
+    paddingHorizontal: 20,
+  },
+  optionsText: {
+    fontSize: 16,
+    fontWeight: "700",
+    alignSelf: "flex-end",
   },
 });

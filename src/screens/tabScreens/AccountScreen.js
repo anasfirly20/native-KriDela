@@ -27,6 +27,14 @@ import { accountStyle } from "../../styles/Account";
 // Icons
 import { editPencilIcon, locationIcon } from "../../assets/icons/LittleIcons";
 import { SvgXml } from "react-native-svg";
+import {
+  starIcon,
+  listIcon,
+  durationIcon,
+  settingsIcon,
+  logOutIcon,
+  arrowRight,
+} from "../../assets/icons/Account";
 
 // Firebase
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -41,6 +49,29 @@ const AccountScreen = () => {
       console.error(e);
     }
   };
+
+  const iconList = [
+    {
+      icon: starIcon,
+      text: "Favorit",
+    },
+    {
+      icon: listIcon,
+      text: "Daftar Transaksi",
+    },
+    {
+      icon: durationIcon,
+      text: "Riwayat Transaksi",
+    },
+    {
+      icon: settingsIcon,
+      text: "Pengaturan Akun",
+    },
+    {
+      icon: logOutIcon,
+      text: "Keluar",
+    },
+  ];
 
   return (
     <SafeAreaView style={univerStyle.container}>
@@ -92,6 +123,21 @@ const AccountScreen = () => {
           </Pressable>
         </View>
       </View>
+      <ScrollView>
+        <View style={{ gap: "10" }}>
+          {iconList?.map((e) => (
+            <View style={accountStyle.options}>
+              <View
+                style={{ flexDirection: "row", alignItems: "center", gap: 25 }}
+              >
+                <SvgXml xml={e?.icon()} />
+                <Text style={accountStyle.optionsText}>{e?.text}</Text>
+              </View>
+              <SvgXml xml={arrowRight(40, 40)} />
+            </View>
+          ))}
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
