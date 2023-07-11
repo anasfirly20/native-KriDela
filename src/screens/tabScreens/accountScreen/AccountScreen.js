@@ -59,7 +59,9 @@ const AccountScreen = ({ navigation }) => {
         <View style={accountStyle.headerContainer}>
           <View style={accountStyle.containerImage}>
             <Image
-              source={require("../../../../assets/firly.jpeg")}
+              source={{
+                uri: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+              }}
               style={accountStyle.image}
             />
             <View style={accountStyle.svgContainer}>
@@ -81,9 +83,9 @@ const AccountScreen = ({ navigation }) => {
           style={{ alignSelf: "flex-start" }}
         />
         <Text style={accountStyle.addressText}>
-          Jalan yang benar no.1 RT10 RW06 {"\n"} Kel. Iman Kec. Taqwa, Surga
+          Jalan South Avenue no.1 RT10 RW06 {"\n"} Kel. Iman Kec. SF, Francisco
           {"\n"}
-          1030, Akhirat
+          1030, LA
         </Text>
         <View style={accountStyle.addressButtonContainer}>
           <Pressable

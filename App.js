@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 
-import { StatusBar } from "expo-status-bar";
-import { TouchableWithoutFeedback, Keyboard } from "react-native";
-
 // Navigations
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
